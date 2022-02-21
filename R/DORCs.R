@@ -386,7 +386,8 @@ getDORCScores <- function(ATAC.se,
   if(normalizeATACmat){
     # Normalize
     cat("Normalizing scATAC counts ..\n")
-    ATAC.mat <- assay(BuenRTools::centerCounts(ATAC.se,chunkSize = 5000))
+	  # remove BuenRTools dependency
+    ATAC.mat <- assay(centerCounts(ATAC.se,chunkSize = 5000))
     gc()
   } else {
     cat("Assuming provided scATAC counts are normalized ..\n")
